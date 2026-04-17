@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
       url
     ]);
 
-    return new Promise((resolve) => {
+    return new Promise<NextResponse>((resolve) => {
       let errorOccurred = false;
       let stderrOutput = "";
 
@@ -60,6 +60,7 @@ export async function POST(req: NextRequest) {
       downloader.on("error", (err) => {
         console.error("Downloader error:", err);
         errorOccurred = true;
+        resolve(NextResponse.json({ error: "Download engine error" }, { status: 500 }));
       });
     });
   } catch (error: any) {

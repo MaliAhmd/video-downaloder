@@ -75,11 +75,11 @@ export function VideoPreviewCard({ data, url }: VideoPreviewCardProps) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-6 py-12 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-      <div className="glass-card rounded-[2.5rem] overflow-hidden grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-8">
+    <div className="w-full max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+      <div className="glass-card rounded-[2rem] md:rounded-[2.5rem] overflow-hidden grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-8">
         {/* Left: Thumbnail and Basic Info */}
-        <div className="md:col-span-2 p-8 bg-white/[0.02]">
-          <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-border group">
+        <div className="md:col-span-2 p-6 md:p-8 bg-white/[0.02]">
+          <div className="relative aspect-video rounded-xl md:rounded-2xl overflow-hidden mb-6 border border-border group">
             <img
               src={data.thumbnail}
               alt={data.title}
@@ -94,21 +94,21 @@ export function VideoPreviewCard({ data, url }: VideoPreviewCardProps) {
               </div>
             )}
           </div>
-
-          <h3 className="text-xl font-display font-extrabold leading-tight mb-4">
+ 
+          <h3 className="text-lg md:text-xl font-display font-extrabold leading-tight mb-4 text-glow-subtle">
             {data.title}
           </h3>
-
+ 
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2 text-text-muted text-sm">
               <User size={16} className="text-accent-secondary" />
-              <span>{data.uploader || "Unknown Uploader"}</span>
+              <span className="truncate">{data.uploader || "Unknown Uploader"}</span>
             </div>
           </div>
         </div>
-
+ 
         {/* Right: Selectors and Action */}
-        <div className="md:col-span-3 p-8 border-t md:border-t-0 md:border-l border-border flex flex-col justify-between">
+        <div className="md:col-span-3 p-6 md:p-8 border-t md:border-t-0 md:border-l border-border flex flex-col justify-between">
           <FormatSelector
             formats={data.formats}
             selectedId={selectedFormat}

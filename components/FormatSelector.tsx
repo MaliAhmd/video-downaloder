@@ -19,9 +19,9 @@ interface FormatSelectorProps {
 
 export function FormatSelector({ formats, selectedId, onSelect }: FormatSelectorProps) {
   return (
-    <div className="flex flex-col gap-4">
-      <label className="text-sm font-bold uppercase tracking-widest text-text-muted">Select Quality</label>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div className="flex flex-col gap-2">
+      <span className="text-xs font-medium text-[#8B90A0]">Select format</span>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
         {formats.map((f) => {
           const isSelected = selectedId === f.format_id;
           const isAudio = !f.height;
@@ -29,21 +29,24 @@ export function FormatSelector({ formats, selectedId, onSelect }: FormatSelector
           return (
             <button
               key={f.format_id}
+              type="button"
               onClick={() => onSelect(f.format_id, f.ext)}
-              className={`flex flex-col items-center justify-center p-4 rounded-2xl transition-all border-2 ${
+              className={`flex flex-col items-start p-2.5 rounded border text-left transition-colors cursor-pointer ${
                 isSelected
-                  ? "bg-accent-primary border-accent-primary text-black"
-                  : "glass-card border-transparent text-text-muted hover:border-text-muted/30 hover:text-text-primary"
+                  ? "bg-[#12141A] border-[#C99A3D] text-[#F2F0EA]"
+                  : "bg-[#161821] border-[#2A2E3A] text-[#8B90A0] hover:border-[#373C4B] hover:text-[#F2F0EA]"
               }`}
             >
-              <div className="mb-2">
-                {isAudio ? <Music size={20} /> : (f.height || 0) >= 1080 ? <Monitor size={20} /> : <Video size={20} />}
+              <div className="flex items-center justify-between w-full mb-1.5">
+                <span className={`text-xs font-semibold ${isSelected ? "text-[#F2F0EA]" : "text-[#8B90A0]"}`}>
+                  {isAudio ? "Audio" : `${f.height}p`}
+                </span>
+                <span className="text-[#8B90A0]">
+                  {isAudio ? <Music size={13} /> : (f.height || 0) >= 1080 ? <Monitor size={13} /> : <Video size={13} />}
+                </span>
               </div>
-              <span className="text-sm font-bold">
-                {isAudio ? "MP3 Audio" : `${f.height}p`}
-              </span>
-              <span className={`text-[10px] opacity-70 ${isSelected ? "text-black" : "text-text-muted"}`}>
-                {f.ext.toUpperCase()} {f.filesize ? `• ${(f.filesize / (1024 * 1024)).toFixed(1)}MB` : ""}
+              <span className="text-[11px] text-[#8B90A0] font-mono">
+                {f.ext.toLowerCase()} {f.filesize ? `• ${(f.filesize / (1024 * 1024)).toFixed(1)}MB` : ""}
               </span>
             </button>
           );

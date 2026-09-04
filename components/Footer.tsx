@@ -1,39 +1,30 @@
 "use client";
 
 import React from "react";
-import { Github, Briefcase, Zap } from "lucide-react";
+import { Github } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border mt-auto py-12 px-6 bg-bg-secondary/50">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="border-t border-[#2A2E3A] mt-auto py-8 px-6 bg-[#12141A]">
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#8B90A0]">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-accent-primary flex items-center justify-center text-black">
-            <Zap size={18} fill="currentColor" />
-          </div>
-          <span className="font-display font-extrabold text-xl tracking-tight">SnapLoad</span>
+          <Logo size={20} />
+          <span className="font-semibold text-sm text-[#F2F0EA]">SnapLoad</span>
         </div>
 
-        <p className="text-text-muted text-sm">
-          &copy; {new Date().getFullYear()} SnapLoad. Built with Next.js & yt-dlp.
+        <p>
+          &copy; {new Date().getFullYear()} SnapLoad. Built by <a href="https://www.devaalley.me/" target="_blank" rel="noopener noreferrer" className="hover:text-[#F2F0EA] transition-colors font-medium">Muhammad Ali Ahmad</a>.
         </p>
 
-        <div className="flex items-center gap-6 text-text-muted">
-          <a 
-            href="https://www.devaalley.me/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:text-accent-primary transition-colors"
-          >
-            <Briefcase size={20} />
-          </a>
+        <div className="flex items-center gap-4">
           <a 
             href="https://github.com/MaliAhmd" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="hover:text-accent-primary transition-colors"
+            className="hover:text-[#F2F0EA] transition-colors"
           >
-            <Github size={20} />
+            <Github size={16} />
           </a>
         </div>
       </div>

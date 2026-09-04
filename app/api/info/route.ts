@@ -14,12 +14,16 @@ export async function GET(req: NextRequest) {
 
   try {
     // Run yt-dlp to get video metadata
-    // We use --dump-json to get detailed info
-    const { stdout, stderr } = await execPromise(`yt-dlp --dump-json "${url}"`);
+    const { stdout, stderr } = await execPromise(`yt-dlp --dump-json "${url}"`).catch(err => {
+      if (err.message.includes("not found") || err.code === 127) {
+        throw new Error("yt-dlp not found on server. Please ensure yt-dlp is installed in the server environment.");
+      }
+      throw err;
+    });
 
     if (stderr && !stdout) {
       console.error("yt-dlp error:", stderr);
-      return NextResponse.json({ error: "Failed to fetch video info" }, { status: 500 });
+      return NextResponse.json({ error: "Failed to fetch video info from server engine" }, { status: 500 });
     }
 
     const info = JSON.parse(stdout);

@@ -37,24 +37,18 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen relative flex flex-col overflow-x-hidden">
-      {/* Background Animated Blobs */}
-      <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-[40rem] h-[40rem] bg-accent-primary/5 rounded-full blur-[120px] animate-blob"></div>
-        <div className="absolute bottom-[20%] right-[10%] w-[35rem] h-[35rem] bg-accent-secondary/5 rounded-full blur-[120px] animate-blob animation-delay-2000"></div>
-      </div>
-
+    <main className="min-h-screen flex flex-col bg-[#12141A] text-[#F2F0EA]">
       <Navbar />
 
-      <section className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col pt-16">
         <Hero />
         
-        <div className="mb-20">
+        <div className="pb-16">
           <UrlInput onFetch={handleFetch} isLoading={loading} />
           
           {error && (
-            <div className="max-w-xl mx-auto mt-8 px-6">
-              <div className="p-4 rounded-2xl bg-danger/10 border border-danger/20 text-danger text-center font-medium animate-in fade-in zoom-in duration-300">
+            <div className="max-w-xl mx-auto mt-6 px-6">
+              <div className="p-3.5 rounded-md bg-[#1E1517] border border-[#4A201A] text-[#D9534F] text-sm text-center font-normal">
                 {error}
               </div>
             </div>
@@ -66,10 +60,9 @@ export default function Home() {
         </div>
 
         <SupportedPlatforms />
-      </section>
+      </div>
 
       <Footer />
     </main>
   );
 }
-

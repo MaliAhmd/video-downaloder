@@ -1,60 +1,54 @@
 "use client";
 
 import React from "react";
-// @ts-ignore
 import { Instagram, Music2, Facebook, Youtube } from "lucide-react";
 
 const platforms = [
   {
     name: "YouTube",
     icon: Youtube,
-    description: "Videos, Shorts, and Playlists in high quality.",
-    color: "border-red-500",
-    iconColor: "text-red-500",
+    description: "Standard videos, Shorts, and audio tracks.",
   },
   {
     name: "Instagram",
     icon: Instagram,
-    description: "Reels, Posts, and IGTV content with one click.",
-    color: "border-pink-500",
-    iconColor: "text-pink-500",
+    description: "Reels, feed video posts, and stories.",
   },
   {
     name: "TikTok",
     icon: Music2,
-    description: "Fast downloads for TikTok videos (watermark-free).",
-    color: "border-cyan-400",
-    iconColor: "text-cyan-400",
+    description: "Original resolution clips without watermarks.",
   },
   {
     name: "Facebook",
     icon: Facebook,
-    description: "HD video downloads from posts and watch feeds.",
-    color: "border-blue-500",
-    iconColor: "text-blue-500",
+    description: "Public video posts and watch stream clips.",
   },
 ];
 
 export function SupportedPlatforms() {
   return (
-    <div className="py-20 px-6 max-w-7xl mx-auto w-full">
-      <h2 className="text-3xl font-display font-extrabold text-center mb-12">
-        Works with your <span className="text-accent-primary">Favorite Platforms</span>
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {platforms.map((p) => (
-          <div
-            key={p.name}
-            className={`glass-card p-6 rounded-3xl border-t-4 ${p.color} transition-transform hover:-translate-y-1`}
-          >
-            <div className={`mb-4 w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center ${p.iconColor}`}>
-              <p.icon size={24} />
+    <section className="py-16 px-6 max-w-5xl mx-auto w-full">
+      <div className="border-t border-[#2A2E3A] pt-12">
+        <h2 className="text-xl font-semibold tracking-tight text-[#F2F0EA] mb-6">
+          Supported platforms
+        </h2>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {platforms.map((p) => (
+            <div
+              key={p.name}
+              className="bg-[#1B1E27] border border-[#2A2E3A] rounded-md p-4 transition-colors hover:border-[#373C4B]"
+            >
+              <div className="w-8 h-8 rounded border border-[#2A2E3A] bg-[#161821] flex items-center justify-center text-[#8B90A0] mb-3">
+                <p.icon size={16} />
+              </div>
+              <h3 className="text-sm font-medium text-[#F2F0EA] mb-1">{p.name}</h3>
+              <p className="text-xs text-[#8B90A0] leading-relaxed">{p.description}</p>
             </div>
-            <h3 className="text-xl font-bold mb-2">{p.name}</h3>
-            <p className="text-text-muted text-sm leading-relaxed">{p.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -37,56 +37,53 @@ export function UrlInput({ onFetch, isLoading }: UrlInputProps) {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-6 relative z-10">
-      <div className="relative group">
-        <div className="absolute -inset-1 bg-gradient-to-r from-accent-primary to-accent-secondary rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-        
-        <div className="relative flex items-center p-2 rounded-[2rem] glass-input">
-          {/* Platform Label */}
-          <div className="hidden sm:flex pl-4 pr-2 items-center">
-            {platform !== "unknown" ? (
-              <PlatformBadge platform={platform} animate={true} />
-            ) : (
-              <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-text-muted">
-                <Link2 size={16} />
-              </div>
-            )}
-          </div>
-
-          {/* Input */}
-          <input
-            type="text"
-            className="flex-1 bg-transparent border-none outline-none px-4 py-4 text-text-primary placeholder:text-text-muted text-lg font-medium"
-            placeholder="Paste your video or post URL here..."
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-            disabled={isLoading}
-          />
-
-          {/* Fetch Button */}
-          <button
-            onClick={() => handleSubmit()}
-            disabled={isLoading || !url.trim()}
-            className="md:px-8 px-4 py-3 rounded-2xl bg-accent-primary text-black font-bold flex items-center gap-2 hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(110,231,183,0.3)]"
-          >
-            {isLoading ? (
-              <>
-                <Loader2 size={20} className="animate-spin" />
-                <span className="hidden md:inline">Fetching</span>
-              </>
-            ) : (
-              <>
-                <Search size={20} />
-                <span className="hidden md:inline">Generate</span>
-              </>
-            )}
-          </button>
+    <div className="w-full max-w-2xl mx-auto px-6">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-stretch sm:items-center bg-[#1B1E27] border border-[#2A2E3A] focus-within:border-[#373C4B] rounded-md p-1.5 transition-colors gap-1.5">
+        {/* Platform Indicator */}
+        <div className="hidden sm:flex pl-2.5 items-center">
+          {platform !== "unknown" ? (
+            <PlatformBadge platform={platform} />
+          ) : (
+            <div className="w-6 h-6 flex items-center justify-center text-[#8B90A0]">
+              <Link2 size={15} />
+            </div>
+          )}
         </div>
-      </div>
+
+        {/* URL Input with STRICT monospace font */}
+        <input
+          type="text"
+          className="flex-1 bg-transparent border-none outline-none px-3 py-2 text-[#F2F0EA] placeholder:text-[#8B90A0] text-sm font-mono tracking-tight"
+          placeholder="https://..."
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          disabled={isLoading}
+          autoComplete="off"
+          spellCheck="false"
+        />
+
+        {/* Generate / Fetch Button with single accent color */}
+        <button
+          type="submit"
+          disabled={isLoading || !url.trim()}
+          className="h-10 px-5 rounded bg-[#C99A3D] hover:bg-[#D9A74A] active:bg-[#B88930] text-[#12141A] font-semibold text-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+        >
+          {isLoading ? (
+            <>
+              <Loader2 size={16} className="animate-spin" />
+              <span>Fetching</span>
+            </>
+          ) : (
+            <>
+              <Search size={15} />
+              <span>Generate</span>
+            </>
+          )}
+        </button>
+      </form>
       
-      {/* Detected Info Mobile */}
-      <div className="sm:hidden mt-4 flex justify-center">
+      {/* Mobile Platform Indicator */}
+      <div className="sm:hidden mt-2 flex justify-start">
         {platform !== "unknown" && <PlatformBadge platform={platform} />}
       </div>
     </div>

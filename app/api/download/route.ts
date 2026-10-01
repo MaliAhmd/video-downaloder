@@ -5,7 +5,7 @@ import path from "path";
 import os from "os";
 import { normalizeMediaUrl } from "@/lib/normalizeUrl";
 
-const downloadsDir = path.join(os.tmpdir(), "snapload-downloads");
+const downloadsDir = path.join(os.tmpdir(), "vidspry-downloads");
 if (!fs.existsSync(downloadsDir)) fs.mkdirSync(downloadsDir, { recursive: true });
 
 // PHASE 1: Prepare the media file (photo, audio, or video)

@@ -10,7 +10,7 @@ export function ResponsibleUse() {
         <div>
           <h2 id="responsible-use" className="text-base font-semibold text-[#F2F0EA]">Responsible Use</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#8B90A0]">
-            SnapLoad is intended for content you own, have permission to download, or are otherwise legally authorized to use. You remain responsible for following copyright law and the terms of the source platform.
+            Vidspry is intended for content you own, have permission to download, or are otherwise legally authorized to use. You remain responsible for following copyright law and the terms of the source platform.
           </p>
         </div>
       </div>

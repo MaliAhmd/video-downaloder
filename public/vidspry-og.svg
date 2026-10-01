@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#12141A"/>
+  <circle cx="1040" cy="80" r="280" fill="#C99A3D" opacity=".08"/>
+  <circle cx="110" cy="610" r="240" fill="#C99A3D" opacity=".05"/>
+  <rect x="76" y="74" width="92" height="92" rx="21" fill="#1B1E27" stroke="#2A2E3A" stroke-width="4"/>
+  <path d="M98 100l20 41c2 4 8 4 10 0l20-41" fill="none" stroke="#C99A3D" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M123 91v35m-12-10 12 12 12-12" fill="none" stroke="#F2F0EA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="192" y="139" fill="#F2F0EA" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700">Vidspry</text>
+  <text x="76" y="294" fill="#F2F0EA" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">Online Video &amp; Audio</text>
+  <text x="76" y="378" fill="#F2F0EA" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">Downloader</text>
+  <text x="80" y="458" fill="#8B90A0" font-family="Arial, Helvetica, sans-serif" font-size="30">Supported public links · MP4 video · MP3 audio</text>
+  <rect x="76" y="520" width="1048" height="2" fill="#2A2E3A"/>
+  <text x="80" y="574" fill="#C99A3D" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700">YouTube · Instagram · TikTok · Facebook · X</text>
+</svg>

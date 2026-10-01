@@ -17,7 +17,7 @@ export function Navbar() {
         <Link href="/" onClick={closeMenu} className="group flex items-center gap-2.5 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C99A3D]">
           <Logo size={28} />
           <span className="font-semibold text-base tracking-tight text-[#F2F0EA]">
-            SnapLoad
+            Vidspry
           </span>
         </Link>
 
@@ -26,12 +26,13 @@ export function Navbar() {
             <Link href="/" className="inline-flex rounded px-2.5 py-2 text-xs font-medium text-[#8B90A0] transition-colors hover:text-[#F2F0EA] focus-visible:outline-2 focus-visible:outline-[#C99A3D]">Home</Link>
             <Link href="/#platforms" className="rounded px-2.5 py-2 text-xs font-medium text-[#8B90A0] transition-colors hover:text-[#F2F0EA] focus-visible:outline-2 focus-visible:outline-[#C99A3D]">Platforms</Link>
             <Link href="/about" className="rounded px-2.5 py-2 text-xs font-medium text-[#8B90A0] transition-colors hover:text-[#F2F0EA] focus-visible:outline-2 focus-visible:outline-[#C99A3D]">About</Link>
+            <Link href="/contact" className="rounded px-2.5 py-2 text-xs font-medium text-[#8B90A0] transition-colors hover:text-[#F2F0EA] focus-visible:outline-2 focus-visible:outline-[#C99A3D]">Contact</Link>
           </nav>
           <a
           href={siteConfig.githubUrl}
           target="_blank" 
           rel="noopener noreferrer"
-          aria-label="SnapLoad on GitHub"
+          aria-label="Vidspry on GitHub"
           className="flex h-8 items-center gap-2 rounded-md border border-[#2A2E3A] bg-[#1B1E27] px-2.5 text-xs font-medium text-[#8B90A0] transition-colors hover:border-[#373C4B] hover:text-[#F2F0EA] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C99A3D]"
         >
           <Github size={15} />
@@ -61,6 +62,7 @@ export function Navbar() {
             <MobileLink href="/" onClick={closeMenu}>Home</MobileLink>
             <MobileLink href="/#platforms" onClick={closeMenu}>Platforms</MobileLink>
             <MobileLink href="/about" onClick={closeMenu}>About</MobileLink>
+            <MobileLink href="/contact" onClick={closeMenu}>Contact</MobileLink>
             <a
               href={siteConfig.githubUrl}
               target="_blank"

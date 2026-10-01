@@ -4,20 +4,20 @@ import { createMetadata } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   title: "Privacy Policy",
-  description: "How SnapLoad processes URLs, temporary media files, logs, and third-party requests.",
+  description: "How Vidspry processes URLs, temporary media files, logs, and third-party requests.",
   path: "/privacy-policy",
 });
 
 export default function PrivacyPolicyPage() {
   return (
-    <InfoPage title="Privacy Policy" introduction="This policy describes the current SnapLoad implementation and the information involved when you use the service.">
+    <InfoPage title="Privacy Policy" introduction="This policy describes the current Vidspry implementation and the information involved when you use the service.">
       <section>
         <h2>Information You Submit</h2>
-        <p>When you generate media options, the URL you enter is sent to the SnapLoad server for processing. When you choose a download, the server also receives the selected format and media title. Do not submit private URLs or links you are not authorized to process.</p>
+        <p>When you generate media options, the URL you enter is sent to the Vidspry server for processing. When you choose a download, the server also receives the selected format and media title. Do not submit private URLs or links you are not authorized to process.</p>
       </section>
       <section>
         <h2>Server Processing and Logs</h2>
-        <p>SnapLoad invokes a server-side media tool to inspect and prepare supported links. The current application logs download preparation details, including the normalized source URL, selected format, and generated file identifier. The hosting provider may also create routine access and error logs that can include IP address, request time, user agent, and requested path.</p>
+        <p>Vidspry invokes a server-side media tool to inspect and prepare supported links. The current application logs download preparation details, including the normalized source URL, selected format, and generated file identifier. The hosting provider may also create routine access and error logs that can include IP address, request time, user agent, and requested path.</p>
       </section>
       <section>
         <h2>Temporary Files</h2>
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
       </section>
       <section>
         <h2>Cookies, Analytics, and Browser Storage</h2>
-        <p>The current SnapLoad application does not implement analytics, advertising, application cookies, localStorage, or sessionStorage. The hosting platform or linked third-party websites may operate independently and are outside the direct control of SnapLoad.</p>
+        <p>The current Vidspry application does not implement analytics, advertising, application cookies, localStorage, or sessionStorage. The hosting platform or linked third-party websites may operate independently and are outside the direct control of Vidspry.</p>
       </section>
       <section>
         <h2>Changes</h2>

@@ -9,7 +9,7 @@ const steps = [
   },
   {
     title: "Paste the URL",
-    text: "Paste the copied URL into the SnapLoad downloader.",
+    text: "Paste the copied URL into the Vidspry downloader.",
     icon: Link2,
   },
   {

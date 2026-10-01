@@ -24,10 +24,34 @@ export function PlatformLandingPage({ platform }: PlatformLandingPageProps) {
       { "@type": "ListItem", position: 2, name: platform.title, item: absoluteUrl(path) },
     ],
   };
+  const pageJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${absoluteUrl(path)}#webpage`,
+        url: absoluteUrl(path),
+        name: `${platform.title} Online`,
+        description: platform.description,
+        inLanguage: "en",
+        isPartOf: { "@id": `${absoluteUrl("/")}#website` },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${absoluteUrl(path)}#faq`,
+        mainEntity: platform.faqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      },
+    ],
+  };
 
   return (
     <main className="flex-1">
       <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={pageJsonLd} />
       <section className="mx-auto w-full max-w-5xl px-6 pb-4 pt-10 sm:pt-14">
         <Breadcrumbs current={platform.title} />
         <div className="mx-auto max-w-3xl text-center">

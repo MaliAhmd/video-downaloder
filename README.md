@@ -1,6 +1,6 @@
-# SnapLoad Setup Instructions
+# Vidspry Setup Instructions
 
-SnapLoad is a dark, minimal social media video and audio downloader built with Next.js 16 and `yt-dlp`.
+Vidspry is a dark, minimal social media video and audio downloader built with Next.js 16 and `yt-dlp`.
 
 ## Prerequisites
 
@@ -44,6 +44,12 @@ yt-dlp --version
     NEXT_PUBLIC_APP_URL=https://your-domain.example
     ```
     This value is used for canonical metadata, the sitemap, robots.txt, and structured data.
+
+5.  **Add Google Search Console verification (optional):**
+    ```bash
+    GOOGLE_SITE_VERIFICATION=your-google-verification-token
+    ```
+    Add the token value only, without the surrounding HTML meta tag.
 
 ## Tech Stack
 

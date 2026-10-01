@@ -20,17 +20,56 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "SnapLoad - Video & Audio Downloader",
-    template: "%s | SnapLoad",
+    default: "Free Online Video & Audio Downloader | Vidspry",
+    template: "%s | Vidspry",
   },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
+  authors: [{ name: "Muhammad Ali Ahmad", url: siteConfig.authorUrl }],
+  creator: "Muhammad Ali Ahmad",
+  publisher: siteConfig.name,
+  category: "technology",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
   icons: {
     icon: [
-      { url: "/snapload-favicon-v2.svg", type: "image/svg+xml" },
-      { url: "/snapload-favicon-v2.png", type: "image/png", sizes: "512x512" },
-      { url: "/snapload-favicon-v2.ico", type: "image/x-icon", sizes: "64x64" },
+      { url: "/vidspry-logo.svg", type: "image/svg+xml" },
+      { url: "/vidspry-icon.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [{ url: "/snapload-favicon-v2.png", sizes: "512x512", type: "image/png" }],
+    apple: [{ url: "/vidspry-icon.png", sizes: "512x512", type: "image/png" }],
+  },
+  openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    locale: "en_US",
+    title: "Free Online Video & Audio Downloader | Vidspry",
+    description: siteConfig.description,
+    url: siteConfig.url,
+    images: [{
+      url: siteConfig.ogImage,
+      width: 1200,
+      height: 630,
+      alt: "Vidspry online video and audio downloader",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Online Video & Audio Downloader | Vidspry",
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
 };
 

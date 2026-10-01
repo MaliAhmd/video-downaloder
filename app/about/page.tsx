@@ -4,17 +4,17 @@ import { InfoPage } from "@/components/InfoPage";
 import { createMetadata } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
-  title: "About SnapLoad",
-  description: "Learn how SnapLoad provides a simple browser-based workflow for supported media links.",
+  title: "About Vidspry",
+  description: "Learn how Vidspry provides a simple browser-based workflow for supported media links.",
   path: "/about",
 });
 
 export default function AboutPage() {
   return (
-    <InfoPage title="About SnapLoad" introduction="SnapLoad is a focused, browser-based interface for processing supported media links without requiring a separate application.">
+    <InfoPage title="About Vidspry" introduction="Vidspry is a focused, browser-based interface for processing supported media links without requiring a separate application.">
       <section>
-        <h2>What SnapLoad Does</h2>
-        <p>SnapLoad accepts supported public URLs from YouTube, Instagram, TikTok, Facebook, and X. Its server-side media engine inspects the link and returns the video, audio, or photo options it can detect for that item.</p>
+        <h2>What Vidspry Does</h2>
+        <p>Vidspry accepts supported public URLs from YouTube, Instagram, TikTok, Facebook, and X. Its server-side media engine inspects the link and returns the video, audio, or photo options it can detect for that item.</p>
       </section>
       <section>
         <h2>A Simple Workflow</h2>
@@ -26,7 +26,7 @@ export default function AboutPage() {
       </section>
       <div className="callout">
         <p>Ready to process a supported link?</p>
-        <Link href="/" className="text-link">Open the SnapLoad downloader</Link>
+        <Link href="/" className="text-link">Open the Vidspry downloader</Link>
       </div>
     </InfoPage>
   );

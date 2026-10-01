@@ -24,12 +24,18 @@ export function Logo({ size = 28, className = "" }: LogoProps) {
         strokeWidth="2.5"
       />
       <path
-        d="M46.5 12.5 20.8 26.6c-5.2 2.9-5 10.4.5 12.7l11.9 4.9-12 7.9 8 8.1 17.1-13.5c5.1-4 4-11.8-2-14l-11.1-4.4 13.3-7.6V12.5Z"
-        fill="#C99A3D"
+        d="M14.5 18.5 28.8 47c1.3 2.6 5.1 2.6 6.4 0l14.3-28.5"
+        stroke="#C99A3D"
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        d="m21.3 39.3 11.9 4.9-4.9 3.2-7-8.1Z"
-        fill="#F2F0EA"
+        d="M32 13v24m-8-7 8 8 8-8"
+        stroke="#F2F0EA"
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

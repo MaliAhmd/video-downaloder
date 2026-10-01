@@ -30,7 +30,7 @@ export function SupportedMedia() {
       <div className="mx-auto w-full max-w-5xl px-6 py-14">
         <SectionHeading
           title="Supported Media and Formats"
-          description="SnapLoad shows only the options it can detect for the submitted URL; not every source offers every format or quality."
+          description="Vidspry shows only the options it can detect for the submitted URL; not every source offers every format or quality."
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (

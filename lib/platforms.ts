@@ -21,11 +21,11 @@ export const platforms: readonly PlatformConfig[] = [
     slug: "youtube-video-downloader",
     title: "YouTube Video Downloader",
     description:
-      "Process supported YouTube video and Shorts links, then choose from the video or audio options the source makes available.",
+      "Use the online YouTube video downloader for supported public videos and Shorts, then choose an available MP4 video or MP3 audio option.",
     cardDescription:
       "Generate available video and audio options for supported YouTube links.",
     introduction:
-      "Paste a supported public YouTube video or Shorts URL. SnapLoad checks the source and displays the video and audio choices currently available for that link.",
+      "Paste a supported public YouTube video or Shorts URL. Vidspry checks the source and displays the video and audio choices currently available for that link.",
     instructions: [
       "Open the public YouTube video or Short and copy its URL.",
       "Paste the URL below and select Generate.",
@@ -48,16 +48,16 @@ export const platforms: readonly PlatformConfig[] = [
     ],
     faqs: [
       {
-        question: "Can SnapLoad process YouTube Shorts?",
+        question: "Can Vidspry process YouTube Shorts?",
         answer: "Public Shorts links can be processed when the media is available to the server.",
       },
       {
         question: "Why do the available YouTube qualities vary?",
-        answer: "YouTube exposes different streams for each upload. SnapLoad only shows compatible choices found for the submitted video.",
+        answer: "YouTube exposes different streams for each upload. Vidspry only shows compatible choices found for the submitted video.",
       },
       {
         question: "Can I download a private YouTube video?",
-        answer: "No. SnapLoad is designed for publicly accessible links and does not bypass account or access controls.",
+        answer: "No. Vidspry is designed for publicly accessible links and does not bypass account or access controls.",
       },
     ],
   },
@@ -67,11 +67,11 @@ export const platforms: readonly PlatformConfig[] = [
     slug: "instagram-video-downloader",
     title: "Instagram Video Downloader",
     description:
-      "Download available media from supported public Instagram Reel and video-post links with SnapLoad.",
+      "Use the online Instagram video downloader to save available media from supported public Reel and video-post links.",
     cardDescription:
       "Process supported public Instagram Reels and video-post links.",
     introduction:
-      "Use SnapLoad with a publicly accessible Instagram Reel or video-post URL. Available output depends on what Instagram exposes for that specific post.",
+      "Use Vidspry with a publicly accessible Instagram Reel or video-post URL. Available output depends on what Instagram exposes for that specific post.",
     instructions: [
       "Open the public Instagram Reel or video post you are permitted to save.",
       "Copy its share URL and paste it into the downloader.",
@@ -94,8 +94,8 @@ export const platforms: readonly PlatformConfig[] = [
     ],
     faqs: [
       {
-        question: "Does SnapLoad work with private Instagram accounts?",
-        answer: "No. SnapLoad does not sign in to Instagram or bypass private-account access controls.",
+        question: "Does Vidspry work with private Instagram accounts?",
+        answer: "No. Vidspry does not sign in to Instagram or bypass private-account access controls.",
       },
       {
         question: "Can I use an Instagram Reel share link?",
@@ -113,11 +113,11 @@ export const platforms: readonly PlatformConfig[] = [
     slug: "tiktok-video-downloader",
     title: "TikTok Video Downloader",
     description:
-      "Process supported public TikTok video and share links and download the media options SnapLoad can detect.",
+      "Use the online TikTok video downloader with supported public video and share links, then choose from the detected media options.",
     cardDescription:
       "Generate media choices for supported public TikTok and short share links.",
     introduction:
-      "Paste a public TikTok video URL or short share link. SnapLoad resolves supported short links and presents the media choices detected for the post without promising a particular resolution or watermark result.",
+      "Paste a public TikTok video URL or short share link. Vidspry resolves supported short links and presents the media choices detected for the post without promising a particular resolution or watermark result.",
     instructions: [
       "Use TikTok's share action to copy the public post link.",
       "Paste either the full link or a supported TikTok short link below.",
@@ -135,20 +135,20 @@ export const platforms: readonly PlatformConfig[] = [
       },
       {
         title: "Verify that the post remains public",
-        text: "Removed, private, region-limited, or login-gated posts may not be accessible to SnapLoad.",
+        text: "Removed, private, region-limited, or login-gated posts may not be accessible to Vidspry.",
       },
     ],
     faqs: [
       {
-        question: "Does SnapLoad accept TikTok short links?",
+        question: "Does Vidspry accept TikTok short links?",
         answer: "It attempts to resolve common vm.tiktok.com and vt.tiktok.com links before processing them.",
       },
       {
-        question: "Does SnapLoad guarantee watermark-free TikTok videos?",
+        question: "Does Vidspry guarantee watermark-free TikTok videos?",
         answer: "No. The result depends on the media streams made available for the submitted post.",
       },
       {
-        question: "Can SnapLoad open private TikTok posts?",
+        question: "Can Vidspry open private TikTok posts?",
         answer: "No. It does not bypass private accounts, login requirements, or other platform restrictions.",
       },
     ],
@@ -159,14 +159,14 @@ export const platforms: readonly PlatformConfig[] = [
     slug: "facebook-video-downloader",
     title: "Facebook Video Downloader",
     description:
-      "Generate available download options for supported public Facebook video and Watch links.",
+      "Use the online Facebook video downloader to generate available media options for supported public video posts and Watch links.",
     cardDescription:
       "Process supported public Facebook video posts and Watch links.",
     introduction:
-      "SnapLoad can inspect supported public Facebook video URLs and show the media options available for the selected post. It does not sign in to Facebook or access private content.",
+      "Vidspry can inspect supported public Facebook video URLs and show the media options available for the selected post. It does not sign in to Facebook or access private content.",
     instructions: [
       "Open the public Facebook video post or Watch page and copy its link.",
-      "Paste that individual video URL into SnapLoad and select Generate.",
+      "Paste that individual video URL into Vidspry and select Generate.",
       "Choose from the detected media options and download the file.",
     ],
     supportedContent: [
@@ -186,8 +186,8 @@ export const platforms: readonly PlatformConfig[] = [
     ],
     faqs: [
       {
-        question: "Can SnapLoad download a friends-only Facebook video?",
-        answer: "No. SnapLoad does not authenticate as a user or bypass Facebook privacy controls.",
+        question: "Can Vidspry download a friends-only Facebook video?",
+        answer: "No. Vidspry does not authenticate as a user or bypass Facebook privacy controls.",
       },
       {
         question: "Are Facebook Watch links supported?",
@@ -205,11 +205,11 @@ export const platforms: readonly PlatformConfig[] = [
     slug: "x-video-downloader",
     title: "X Video Downloader",
     description:
-      "Process supported public X and Twitter post links and download the media options SnapLoad can detect.",
+      "Use the online X video downloader with supported public x.com and Twitter post links, then choose an available media option.",
     cardDescription:
       "Generate available media choices for supported public posts on X.",
     introduction:
-      "Paste a public post URL from X, including older twitter.com links. SnapLoad checks the post and presents the video or audio choices its media engine can access.",
+      "Paste a public post URL from X, including older twitter.com links. Vidspry checks the post and presents the video or audio choices its media engine can access.",
     instructions: [
       "Open the public post on X that contains the media you are permitted to save.",
       "Copy its x.com or twitter.com status URL and paste it into the downloader.",
@@ -232,12 +232,12 @@ export const platforms: readonly PlatformConfig[] = [
     ],
     faqs: [
       {
-        question: "Does SnapLoad accept both x.com and twitter.com links?",
+        question: "Does Vidspry accept both x.com and twitter.com links?",
         answer: "Yes. Supported public status links using either hostname can be submitted to the downloader.",
       },
       {
-        question: "Can SnapLoad access posts from protected X accounts?",
-        answer: "No. SnapLoad does not sign in to X or bypass protected-account and other access controls.",
+        question: "Can Vidspry access posts from protected X accounts?",
+        answer: "No. Vidspry does not sign in to X or bypass protected-account and other access controls.",
       },
       {
         question: "Why are no media options shown for an X post?",

@@ -14,7 +14,7 @@ export function Features() {
   return (
     <section className="border-y border-[#2A2E3A] bg-[#161821]">
       <div className="mx-auto w-full max-w-5xl px-6 py-14" aria-labelledby="features-heading">
-        <SectionHeading title="Why Use SnapLoad?" description="A focused downloader built around a straightforward browser workflow." />
+        <SectionHeading title="Why Use Vidspry?" description="A focused downloader built around a straightforward browser workflow." />
         <div className="grid gap-px overflow-hidden rounded-md border border-[#2A2E3A] bg-[#2A2E3A] sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <article key={feature.title} className="bg-[#1B1E27] p-5">

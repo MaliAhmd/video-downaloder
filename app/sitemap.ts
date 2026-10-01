@@ -17,7 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticRoutes, ...platformRoutes].map((path) => ({
     url: absoluteUrl(path),
+    lastModified: new Date("2026-10-02"),
     changeFrequency: path === "/" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : path.includes("-video-downloader") ? 0.8 : 0.5,
+    priority: path === "/" ? 1 : path.includes("-video-downloader") ? 0.9 : path === "/about" ? 0.6 : 0.4,
   }));
 }

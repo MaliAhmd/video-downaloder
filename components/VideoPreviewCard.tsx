@@ -1,20 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { User } from "lucide-react";
 import { PlatformBadge } from "./PlatformBadge";
 import { FormatSelector } from "./FormatSelector";
 import { DownloadButton } from "./DownloadButton";
-
-interface VideoData {
-  title: string;
-  thumbnail: string;
-  duration?: number;
-  duration_string?: string;
-  uploader?: string;
-  platform: string;
-  formats: any[];
-}
+import type { VideoData } from "@/lib/media";
 
 interface VideoPreviewCardProps {
   data: VideoData;
@@ -23,13 +14,12 @@ interface VideoPreviewCardProps {
 
 export function VideoPreviewCard({ data, url }: VideoPreviewCardProps) {
   const [selectedFormat, setSelectedFormat] = useState(data.formats[0]?.format_id || "");
-  const [selectedExt, setSelectedExt] = useState(data.formats[0]?.ext || "mp4");
   const [isDownloading, setIsDownloading] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
   const handleDownload = async () => {
     if (!url || !selectedFormat) {
-      alert("Please select a quality first");
+      alert("Please select a format first");
       return;
     }
 
@@ -37,6 +27,7 @@ export function VideoPreviewCard({ data, url }: VideoPreviewCardProps) {
     setIsComplete(false);
 
     try {
+      const selectedFormatObj = data.formats.find((format) => format.format_id === selectedFormat);
       const response = await fetch("/api/download", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -44,6 +35,7 @@ export function VideoPreviewCard({ data, url }: VideoPreviewCardProps) {
           url,
           format: selectedFormat,
           title: data.title,
+          photo_url: selectedFormatObj?.photo_url || (selectedFormatObj?.is_photo ? data.thumbnail : undefined),
         }),
       });
 
@@ -62,9 +54,10 @@ export function VideoPreviewCard({ data, url }: VideoPreviewCardProps) {
       
       setIsComplete(true);
       setTimeout(() => setIsComplete(false), 4000);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Download error:", error);
-      alert(`Download failed: ${error.message}`);
+      const message = error instanceof Error ? error.message : "Unknown error";
+      alert(`Download failed: ${message}`);
     } finally {
       setIsDownloading(false);
     }
@@ -77,6 +70,8 @@ export function VideoPreviewCard({ data, url }: VideoPreviewCardProps) {
         <div className="md:col-span-2 p-4 bg-[#161821] border-b md:border-b-0 md:border-r border-[#2A2E3A] flex flex-col justify-between">
           <div>
             <div className="relative aspect-video rounded overflow-hidden border border-[#2A2E3A] mb-3 bg-[#0E1015]">
+              {/* Dynamic source-platform hosts make a native image safer than a broadly allowlisted image proxy. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={data.thumbnail}
                 alt={data.title}
@@ -110,7 +105,7 @@ export function VideoPreviewCard({ data, url }: VideoPreviewCardProps) {
             selectedId={selectedFormat}
             onSelect={(id, ext) => {
               setSelectedFormat(id);
-              setSelectedExt(ext);
+                void ext;
             }}
           />
 

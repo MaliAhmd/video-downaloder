@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import type { LucideIcon } from "lucide-react";
 import { Youtube, Instagram, Music2, Facebook, Link2 } from "lucide-react";
 
 interface PlatformBadgeProps {
@@ -9,7 +9,7 @@ interface PlatformBadgeProps {
   animate?: boolean;
 }
 
-const PLATFORMS: Record<string, { name: string; icon: any }> = {
+const PLATFORMS: Record<string, { name: string; icon: LucideIcon }> = {
   youtube: { name: "YouTube", icon: Youtube },
   instagram: { name: "Instagram", icon: Instagram },
   tiktok: { name: "TikTok", icon: Music2 },
@@ -17,7 +17,7 @@ const PLATFORMS: Record<string, { name: string; icon: any }> = {
   unknown: { name: "URL", icon: Link2 },
 };
 
-export const PlatformBadge: React.FC<PlatformBadgeProps> = ({ platform, className }) => {
+export function PlatformBadge({ platform, className }: PlatformBadgeProps) {
   const p = PLATFORMS[platform.toLowerCase()] || PLATFORMS.unknown;
   const Icon = p.icon;
 
@@ -29,4 +29,4 @@ export const PlatformBadge: React.FC<PlatformBadgeProps> = ({ platform, classNam
       <span>{p.name}</span>
     </div>
   );
-};
+}

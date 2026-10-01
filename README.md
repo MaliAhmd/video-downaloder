@@ -1,10 +1,10 @@
 # SnapLoad Setup Instructions
 
-SnapLoad is a premium social media video/image downloader built with Next.js 14 and `yt-dlp`.
+SnapLoad is a dark, minimal social media video and audio downloader built with Next.js 16 and `yt-dlp`.
 
 ## Prerequisites
 
-1.  **Node.js**: Ensure you have Node.js 18+ installed.
+1.  **Node.js**: Ensure you have Node.js 20.9+ installed.
 2.  **yt-dlp**: This is the core engine for downloading. You must have it installed and available in your system's PATH.
 
 ### Installing yt-dlp
@@ -39,9 +39,15 @@ yt-dlp --version
 3.  **Open the app:**
     Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+4.  **Configure the public URL for production:**
+    ```bash
+    NEXT_PUBLIC_APP_URL=https://your-domain.example
+    ```
+    This value is used for canonical metadata, the sitemap, robots.txt, and structured data.
+
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Styling**: Tailwind CSS 4
 - **Icons**: Lucide React
 - **Engine**: yt-dlp (CLI)

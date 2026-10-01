@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { Search, Loader2, Link2 } from "lucide-react";
 import { PlatformBadge } from "./PlatformBadge";
 
@@ -11,23 +11,14 @@ interface UrlInputProps {
 
 export function UrlInput({ onFetch, isLoading }: UrlInputProps) {
   const [url, setUrl] = useState("");
-  const [platform, setPlatform] = useState<string>("unknown");
-
-  useEffect(() => {
-    const detectPlatform = (val: string) => {
-      if (val.includes("youtube.com") || val.includes("youtu.be")) return "youtube";
-      if (val.includes("instagram.com")) return "instagram";
-      if (val.includes("tiktok.com")) return "tiktok";
-      if (val.includes("facebook.com") || val.includes("fb.watch") || val.includes("fb.com")) return "facebook";
-      return "unknown";
-    };
-
-    if (url.trim()) {
-      setPlatform(detectPlatform(url));
-    } else {
-      setPlatform("unknown");
-    }
-  }, [url]);
+  const detectPlatform = (value: string) => {
+    if (value.includes("youtube.com") || value.includes("youtu.be")) return "youtube";
+    if (value.includes("instagram.com")) return "instagram";
+    if (value.includes("tiktok.com")) return "tiktok";
+    if (value.includes("facebook.com") || value.includes("fb.watch") || value.includes("fb.com")) return "facebook";
+    return "unknown";
+  };
+  const platform = url.trim() ? detectPlatform(url.toLowerCase()) : "unknown";
 
   const handleSubmit = (e?: React.FormEvent) => {
     e?.preventDefault();
@@ -52,13 +43,15 @@ export function UrlInput({ onFetch, isLoading }: UrlInputProps) {
 
         {/* URL Input with STRICT monospace font */}
         <input
-          type="text"
+          type="url"
+          aria-label="Media URL"
           className="flex-1 bg-transparent border-none outline-none px-3 py-2 text-[#F2F0EA] placeholder:text-[#8B90A0] text-sm font-mono tracking-tight"
           placeholder="https://..."
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           disabled={isLoading}
           autoComplete="off"
+          inputMode="url"
           spellCheck="false"
         />
 

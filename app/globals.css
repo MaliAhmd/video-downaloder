@@ -40,4 +40,35 @@
     color: #F2F0EA;
     font-family: var(--font-sans);
   }
+
+  ::selection {
+    background: #C99A3D;
+    color: #12141A;
+  }
+}
+
+@layer components {
+  .prose-shell section {
+    @apply rounded-md border border-[#2A2E3A] bg-[#1B1E27] p-5 sm:p-6;
+  }
+
+  .prose-shell h2 {
+    @apply text-lg font-semibold tracking-tight text-[#F2F0EA];
+  }
+
+  .prose-shell p {
+    @apply mt-3 text-sm leading-7 text-[#8B90A0];
+  }
+
+  .prose-shell .callout {
+    @apply flex flex-col items-start justify-between gap-4 rounded-md border border-[#2A2E3A] bg-[#161821] p-5 sm:flex-row sm:items-center;
+  }
+
+  .prose-shell .callout p {
+    @apply mt-0 text-[#F2F0EA];
+  }
+
+  .text-link {
+    @apply rounded font-medium text-[#C99A3D] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C99A3D];
+  }
 }

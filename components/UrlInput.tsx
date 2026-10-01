@@ -16,6 +16,7 @@ export function UrlInput({ onFetch, isLoading }: UrlInputProps) {
     if (value.includes("instagram.com")) return "instagram";
     if (value.includes("tiktok.com")) return "tiktok";
     if (value.includes("facebook.com") || value.includes("fb.watch") || value.includes("fb.com")) return "facebook";
+    if (value.includes("x.com") || value.includes("twitter.com")) return "x";
     return "unknown";
   };
   const platform = url.trim() ? detectPlatform(url.toLowerCase()) : "unknown";

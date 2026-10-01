@@ -13,7 +13,7 @@ export default function DisclaimerPage() {
     <InfoPage title="Disclaimer" introduction="SnapLoad is an independent media-processing service and is not an official product of any supported third-party platform.">
       <section>
         <h2>No Platform Affiliation</h2>
-        <p>SnapLoad is not affiliated with, sponsored by, owned by, or endorsed by YouTube or Google, Instagram or Meta, Facebook, TikTok, or ByteDance. Their names and trademarks are used only to identify supported third-party sources.</p>
+        <p>SnapLoad is not affiliated with, sponsored by, owned by, or endorsed by YouTube or Google, Instagram or Meta, Facebook, TikTok or ByteDance, X, or X Corp. Their names and trademarks are used only to identify supported third-party sources.</p>
       </section>
       <section>
         <h2>Source Availability</h2>

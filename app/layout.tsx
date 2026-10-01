@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico" },
-      { url: "/favicon.png", type: "image/png" },
+      { url: "/snapload-favicon-v2.svg", type: "image/svg+xml" },
+      { url: "/snapload-favicon-v2.png", type: "image/png", sizes: "512x512" },
+      { url: "/snapload-favicon-v2.ico", type: "image/x-icon", sizes: "64x64" },
     ],
-    apple: "/favicon.png",
+    apple: [{ url: "/snapload-favicon-v2.png", sizes: "512x512", type: "image/png" }],
   },
 };
 

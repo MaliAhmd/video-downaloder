@@ -6,7 +6,7 @@ export function Hero() {
       </h1>
       
       <p className="text-base sm:text-lg text-[#8B90A0] max-w-xl leading-relaxed">
-        Paste a supported YouTube, Instagram, TikTok, or Facebook URL to view the available media options.
+        Paste a supported YouTube, Instagram, TikTok, Facebook, or X URL to view the available media options.
       </p>
     </section>
   );

@@ -55,7 +55,7 @@ yt-dlp --version
 
 ## Features
 
-- **Platform Detection**: Automatically identifies YouTube, Instagram, TikTok, and Facebook links.
+- **Platform Detection**: Automatically identifies YouTube, Instagram, TikTok, Facebook, and X/Twitter links.
 - **Quality Selector**: Choose between different video resolutions or MP3 audio.
 - **Streaming Downloads**: Files are processed on the server and streamed directly to your browser.
 - **Premium UI**: Glassmorphism, animated gradients, and smooth transitions.

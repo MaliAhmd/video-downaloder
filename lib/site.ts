@@ -24,7 +24,7 @@ export const siteConfig = {
   name: "SnapLoad",
   url: getSiteUrl(),
   description:
-    "Download available video, audio, and media options from supported YouTube, Instagram, TikTok, and Facebook links.",
+    "Download available video, audio, and media options from supported YouTube, Instagram, TikTok, Facebook, and X links.",
   githubUrl: "https://github.com/MaliAhmd",
   authorUrl: "https://www.devaalley.me/",
 } as const;

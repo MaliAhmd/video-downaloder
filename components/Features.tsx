@@ -2,7 +2,7 @@ import { Globe2, MonitorSmartphone, Music2, PanelsTopLeft, Smartphone, PackageX 
 import { SectionHeading } from "./SectionHeading";
 
 const features = [
-  { title: "Multiple Platforms", text: "Use supported links from four popular media platforms.", icon: Globe2 },
+  { title: "Multiple Platforms", text: "Use supported links from five popular media platforms.", icon: Globe2 },
   { title: "Video & Audio", text: "Choose from the video and audio options detected for a link.", icon: Music2 },
   { title: "Browser Based", text: "The workflow runs from a modern web browser.", icon: PanelsTopLeft },
   { title: "Mobile Friendly", text: "The interface adapts to phones, tablets, and larger screens.", icon: Smartphone },

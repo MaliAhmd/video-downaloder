@@ -1,5 +1,3 @@
-import React from "react";
-
 interface LogoProps {
   size?: number;
   className?: string;
@@ -15,59 +13,23 @@ export function Logo({ size = 28, className = "" }: LogoProps) {
       fill="none"
       className={`shrink-0 ${className}`}
     >
-      {/* Background Tile */}
       <rect
-        width="64"
-        height="64"
+        x="1.25"
+        y="1.25"
+        width="61.5"
+        height="61.5"
         rx="14"
         fill="#1B1E27"
         stroke="#2A2E3A"
         strokeWidth="2.5"
       />
-
-      {/* Snap Reticle Corners (Capture) */}
       <path
-        d="M18 26 V18 H26"
-        stroke="#8B90A0"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M46.5 12.5 20.8 26.6c-5.2 2.9-5 10.4.5 12.7l11.9 4.9-12 7.9 8 8.1 17.1-13.5c5.1-4 4-11.8-2-14l-11.1-4.4 13.3-7.6V12.5Z"
+        fill="#C99A3D"
       />
       <path
-        d="M46 26 V18 H38"
-        stroke="#8B90A0"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M18 38 V46 H26"
-        stroke="#8B90A0"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M46 38 V46 H38"
-        stroke="#8B90A0"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Central Download Arrow (Load) */}
-      <path
-        d="M32 19 V38"
-        stroke="#F2F0EA"
-        strokeWidth="4.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M23 31 L32 40 L41 31"
-        stroke="#C99A3D"
-        strokeWidth="4.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="m21.3 39.3 11.9 4.9-4.9 3.2-7-8.1Z"
+        fill="#F2F0EA"
       />
     </svg>
   );

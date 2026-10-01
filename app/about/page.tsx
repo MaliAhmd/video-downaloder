@@ -14,7 +14,7 @@ export default function AboutPage() {
     <InfoPage title="About SnapLoad" introduction="SnapLoad is a focused, browser-based interface for processing supported media links without requiring a separate application.">
       <section>
         <h2>What SnapLoad Does</h2>
-        <p>SnapLoad accepts supported public URLs from YouTube, Instagram, TikTok, and Facebook. Its server-side media engine inspects the link and returns the video, audio, or photo options it can detect for that item.</p>
+        <p>SnapLoad accepts supported public URLs from YouTube, Instagram, TikTok, Facebook, and X. Its server-side media engine inspects the link and returns the video, audio, or photo options it can detect for that item.</p>
       </section>
       <section>
         <h2>A Simple Workflow</h2>

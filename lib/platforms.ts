@@ -1,4 +1,4 @@
-export type PlatformKey = "youtube" | "instagram" | "tiktok" | "facebook";
+export type PlatformKey = "youtube" | "instagram" | "tiktok" | "facebook" | "x";
 
 export interface PlatformConfig {
   key: PlatformKey;
@@ -196,6 +196,52 @@ export const platforms: readonly PlatformConfig[] = [
       {
         question: "Why does my Facebook link show no options?",
         answer: "The video may require login, have limited visibility, be removed, or use a URL that does not identify an individual video.",
+      },
+    ],
+  },
+  {
+    key: "x",
+    name: "X",
+    slug: "x-video-downloader",
+    title: "X Video Downloader",
+    description:
+      "Process supported public X and Twitter post links and download the media options SnapLoad can detect.",
+    cardDescription:
+      "Generate available media choices for supported public posts on X.",
+    introduction:
+      "Paste a public post URL from X, including older twitter.com links. SnapLoad checks the post and presents the video or audio choices its media engine can access.",
+    instructions: [
+      "Open the public post on X that contains the media you are permitted to save.",
+      "Copy its x.com or twitter.com status URL and paste it into the downloader.",
+      "Generate the available options, choose a file, and start the download.",
+    ],
+    supportedContent: [
+      "Public x.com status links containing media",
+      "Supported legacy twitter.com status links",
+      "Video and audio choices exposed for the submitted post",
+    ],
+    troubleshooting: [
+      {
+        title: "Use the individual post URL",
+        text: "Profile pages, timelines, and search URLs do not identify one media item. Copy the status link for the post itself.",
+      },
+      {
+        title: "Confirm that the post is public",
+        text: "Protected accounts, deleted posts, login-gated media, and region-restricted content may not be available to the server.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Does SnapLoad accept both x.com and twitter.com links?",
+        answer: "Yes. Supported public status links using either hostname can be submitted to the downloader.",
+      },
+      {
+        question: "Can SnapLoad access posts from protected X accounts?",
+        answer: "No. SnapLoad does not sign in to X or bypass protected-account and other access controls.",
+      },
+      {
+        question: "Why are no media options shown for an X post?",
+        answer: "The post may not contain downloadable media, may be unavailable to the server, or may have been removed or restricted.",
       },
     ],
   },

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 const homeFaqs = [
   { question: "What is SnapLoad?", answer: "SnapLoad is a browser-based interface that uses a server-side media engine to inspect supported URLs and prepare available media files." },
-  { question: "Which platforms does SnapLoad support?", answer: "The current interface supports YouTube, Instagram, TikTok, and Facebook URLs that are publicly accessible to the server." },
+  { question: "Which platforms does SnapLoad support?", answer: "The current interface supports YouTube, Instagram, TikTok, Facebook, and X URLs that are publicly accessible to the server." },
   { question: "How do I download a video?", answer: "Copy an individual media URL, paste it into the downloader, select Generate, then choose one of the detected options." },
   { question: "Can I use SnapLoad on mobile?", answer: "Yes. The website is responsive and can be used from a modern mobile browser." },
   { question: "Which video and audio formats are supported?", answer: "Video selections are prepared as MP4 and audio-only selections as MP3. A JPG option may appear for supported photo-oriented content." },

@@ -26,6 +26,12 @@ export async function normalizeMediaUrl(rawUrl: string): Promise<string> {
     }
   }
 
+  // Normalize YouTube short links and strip tracking query parameters
+  const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|watch\?v=))([\w-]{11})/i);
+  if (ytMatch && ytMatch[1]) {
+    url = `https://www.youtube.com/watch?v=${ytMatch[1]}`;
+  }
+
   // TikTok photo / slideshow mode posts use /photo/<id> in the browser URL.
   // yt-dlp's TikTok extractor only recognizes the /video/<id> path.
   // Converting /photo/ to /video/ allows yt-dlp to extract the post audio, metadata and cover image.

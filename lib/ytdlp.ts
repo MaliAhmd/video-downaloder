@@ -8,9 +8,9 @@ export function getCommonYtDlpArgs(): string[] {
     "--no-check-certificates",
     "--force-ipv4",
     "--extractor-args",
-    "youtube:player_client=ios,tv_embedded,mweb;player_skip=webpage,configs",
+    "youtube:player_client=ios,web,mweb",
     "--user-agent",
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1",
   ];
 
 

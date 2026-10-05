@@ -3,6 +3,8 @@ import { execFile } from "child_process";
 import { promisify } from "util";
 import { normalizeMediaUrl } from "@/lib/normalizeUrl";
 
+import { getCommonYtDlpArgs } from "@/lib/ytdlp";
+
 const execFilePromise = promisify(execFile);
 
 interface YtDlpFormat {
@@ -58,11 +60,7 @@ export async function GET(req: NextRequest) {
 
     // Run yt-dlp with extractor arguments to bypass YouTube datacenter bot detection
     const ytDlpArgs = [
-      "--no-update",
-      "--no-warnings",
-      "--no-check-certificates",
-      "--extractor-args",
-      "youtube:player_client=android,web;player_skip=webpage,configs",
+      ...getCommonYtDlpArgs(),
       "--dump-json",
       url,
     ];

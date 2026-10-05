@@ -10,7 +10,11 @@ export const metadata: Metadata = createMetadata({
 
 export default function TermsPage() {
   return (
-    <InfoPage title="Terms of Service" introduction="By using Vidspry, you agree to use the service responsibly and only for content you are authorized to download.">
+    <InfoPage
+      title="Terms of Service"
+      introduction="By using Vidspry, you agree to use the service responsibly and only for content you are authorized to download."
+      path="/terms"
+    >
       <PolicySection title="Acceptance of Terms">Your use of Vidspry indicates acceptance of these terms. If you do not agree, do not use the service.</PolicySection>
       <PolicySection title="Use of the Service">Vidspry provides a technical interface that processes supported third-party media URLs. Availability, formats, and quality depend on the source and may change without notice.</PolicySection>
       <PolicySection title="User Responsibilities">You are responsible for the URLs you submit, the files you download, and ensuring that your activity complies with applicable law, copyright permissions, and source-platform terms.</PolicySection>

@@ -16,6 +16,7 @@ export default function ContactPage() {
     <InfoPage
       title="Contact Vidspry"
       introduction="Questions, feedback, or a problem with a supported link? Choose the contact route that best matches what you need."
+      path="/contact"
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <ContactCard

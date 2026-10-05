@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.gitignore
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env*.local
+*.part
+test.*
+.agents
+.gemini
+CLAUDE.md
+AGENTS.md

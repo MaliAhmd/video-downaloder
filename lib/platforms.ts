@@ -12,6 +12,7 @@ export interface PlatformConfig {
   supportedContent: readonly string[];
   troubleshooting: readonly { title: string; text: string }[];
   faqs: readonly { question: string; answer: string }[];
+  keywords: readonly string[];
 }
 
 export const platforms: readonly PlatformConfig[] = [
@@ -26,6 +27,14 @@ export const platforms: readonly PlatformConfig[] = [
       "Generate available video and audio options for supported YouTube links.",
     introduction:
       "Paste a supported public YouTube video or Shorts URL. Vidspry checks the source and displays the video and audio choices currently available for that link.",
+    keywords: [
+      "youtube video downloader",
+      "download youtube shorts",
+      "youtube to mp4",
+      "youtube to mp3",
+      "online youtube downloader",
+      "free youtube video saver",
+    ],
     instructions: [
       "Open the public YouTube video or Short and copy its URL.",
       "Paste the URL below and select Generate.",
@@ -72,6 +81,13 @@ export const platforms: readonly PlatformConfig[] = [
       "Process supported public Instagram Reels and video-post links.",
     introduction:
       "Use Vidspry with a publicly accessible Instagram Reel or video-post URL. Available output depends on what Instagram exposes for that specific post.",
+    keywords: [
+      "instagram video downloader",
+      "download instagram reels",
+      "instagram reel saver",
+      "instagram mp4 downloader",
+      "save instagram video online",
+    ],
     instructions: [
       "Open the public Instagram Reel or video post you are permitted to save.",
       "Copy its share URL and paste it into the downloader.",
@@ -118,6 +134,13 @@ export const platforms: readonly PlatformConfig[] = [
       "Generate media choices for supported public TikTok and short share links.",
     introduction:
       "Paste a public TikTok video URL or short share link. Vidspry resolves supported short links and presents the media choices detected for the post without promising a particular resolution or watermark result.",
+    keywords: [
+      "tiktok video downloader",
+      "download tiktok video",
+      "save tiktok mp4",
+      "tiktok audio downloader",
+      "online tiktok downloader",
+    ],
     instructions: [
       "Use TikTok's share action to copy the public post link.",
       "Paste either the full link or a supported TikTok short link below.",
@@ -164,6 +187,13 @@ export const platforms: readonly PlatformConfig[] = [
       "Process supported public Facebook video posts and Watch links.",
     introduction:
       "Vidspry can inspect supported public Facebook video URLs and show the media options available for the selected post. It does not sign in to Facebook or access private content.",
+    keywords: [
+      "facebook video downloader",
+      "download facebook video",
+      "fb watch downloader",
+      "facebook video to mp4",
+      "online facebook video saver",
+    ],
     instructions: [
       "Open the public Facebook video post or Watch page and copy its link.",
       "Paste that individual video URL into Vidspry and select Generate.",
@@ -210,6 +240,13 @@ export const platforms: readonly PlatformConfig[] = [
       "Generate available media choices for supported public posts on X.",
     introduction:
       "Paste a public post URL from X, including older twitter.com links. Vidspry checks the post and presents the video or audio choices its media engine can access.",
+    keywords: [
+      "x video downloader",
+      "twitter video downloader",
+      "download twitter video",
+      "download x video",
+      "save twitter video mp4",
+    ],
     instructions: [
       "Open the public post on X that contains the media you are permitted to save.",
       "Copy its x.com or twitter.com status URL and paste it into the downloader.",

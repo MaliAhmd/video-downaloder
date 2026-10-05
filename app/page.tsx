@@ -15,6 +15,17 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Free Online Video & Audio Downloader | Vidspry" },
   description: siteConfig.description,
+  keywords: [
+    "online video downloader",
+    "free video downloader",
+    "youtube video downloader",
+    "instagram reels downloader",
+    "tiktok video downloader",
+    "facebook video downloader",
+    "twitter x video downloader",
+    "extract mp3 audio online",
+    "download 1080p video",
+  ],
   alternates: { canonical: absoluteUrl("/") },
   openGraph: {
     type: "website",
@@ -46,12 +57,21 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": `${absoluteUrl("/")}#organization`,
+        name: siteConfig.name,
+        url: absoluteUrl("/"),
+        logo: absoluteUrl("/vidspry-icon.png"),
+        sameAs: [siteConfig.githubUrl, siteConfig.authorUrl],
+      },
+      {
         "@type": "WebSite",
         "@id": `${absoluteUrl("/")}#website`,
         name: siteConfig.name,
         alternateName: "Vidspry Downloader",
         url: absoluteUrl("/"),
         description: siteConfig.description,
+        publisher: { "@id": `${absoluteUrl("/")}#organization` },
         inLanguage: "en",
       },
       {
@@ -70,6 +90,32 @@ export default function Home() {
           "MP3 audio extraction when available",
           "YouTube, Instagram, TikTok, Facebook, and X support",
           "Responsive mobile and desktop interface",
+        ],
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${absoluteUrl("/")}#howto`,
+        name: "How to Download Video and Audio with Vidspry",
+        description: "A simple 3-step guide to download public videos and extract MP3 audio using Vidspry.",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Paste the URL",
+            text: "Copy a public link from YouTube, Instagram, TikTok, Facebook, or X and paste it into the downloader field.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Generate Options",
+            text: "Click Generate to let Vidspry inspect available video qualities, audio tracks, and formats for that URL.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Download the File",
+            text: "Select your preferred format (MP4 or MP3) and resolution, then click Download to save the file to your device.",
+          },
         ],
       },
       {

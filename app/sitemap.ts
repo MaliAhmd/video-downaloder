@@ -14,11 +14,12 @@ const staticRoutes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const platformRoutes = platforms.map((platform) => `/${platform.slug}`);
+  const now = new Date();
 
   return [...staticRoutes, ...platformRoutes].map((path) => ({
     url: absoluteUrl(path),
-    lastModified: new Date("2026-10-02"),
-    changeFrequency: path === "/" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : path.includes("-video-downloader") ? 0.9 : path === "/about" ? 0.6 : 0.4,
+    lastModified: now,
+    changeFrequency: path === "/" ? "weekly" : path.includes("-video-downloader") ? "weekly" : "monthly",
+    priority: path === "/" ? 1.0 : path.includes("-video-downloader") ? 0.9 : path === "/about" || path === "/contact" ? 0.6 : 0.4,
   }));
 }

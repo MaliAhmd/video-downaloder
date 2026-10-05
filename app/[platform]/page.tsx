@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: PlatformPageProps): Promise<M
     title: platform.key === "x" ? "Twitter (X) Video Downloader Online" : `${platform.title} Online`,
     description: platform.description,
     path: `/${platform.slug}`,
+    keywords: platform.keywords,
   });
 }
 

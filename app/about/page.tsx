@@ -11,7 +11,11 @@ export const metadata: Metadata = createMetadata({
 
 export default function AboutPage() {
   return (
-    <InfoPage title="About Vidspry" introduction="Vidspry is a focused, browser-based interface for processing supported media links without requiring a separate application.">
+    <InfoPage
+      title="About Vidspry"
+      introduction="Vidspry is a focused, browser-based interface for processing supported media links without requiring a separate application."
+      path="/about"
+    >
       <section>
         <h2>What Vidspry Does</h2>
         <p>Vidspry accepts supported public URLs from YouTube, Instagram, TikTok, Facebook, and X. Its server-side media engine inspects the link and returns the video, audio, or photo options it can detect for that item.</p>

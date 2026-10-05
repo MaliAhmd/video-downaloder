@@ -38,12 +38,14 @@ interface MetadataOptions {
   title: string;
   description: string;
   path: string;
+  keywords?: readonly string[] | string[];
 }
 
 export function createMetadata({
   title,
   description,
   path,
+  keywords,
 }: MetadataOptions): Metadata {
   const url = absoluteUrl(path);
   const socialTitle = `${title} | ${siteConfig.name}`;
@@ -51,6 +53,7 @@ export function createMetadata({
   return {
     title,
     description,
+    keywords: keywords ? [...keywords] : undefined,
     alternates: { canonical: url },
     openGraph: {
       type: "website",

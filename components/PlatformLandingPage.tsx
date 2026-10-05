@@ -37,6 +37,18 @@ export function PlatformLandingPage({ platform }: PlatformLandingPageProps) {
         isPartOf: { "@id": `${absoluteUrl("/")}#website` },
       },
       {
+        "@type": "HowTo",
+        "@id": `${absoluteUrl(path)}#howto`,
+        name: `How to Download Videos from ${platform.name}`,
+        description: `Step-by-step instructions to download media from ${platform.name} using Vidspry.`,
+        step: platform.instructions.map((stepText, idx) => ({
+          "@type": "HowToStep",
+          position: idx + 1,
+          name: `Step ${idx + 1}`,
+          text: stepText,
+        })),
+      },
+      {
         "@type": "FAQPage",
         "@id": `${absoluteUrl(path)}#faq`,
         mainEntity: platform.faqs.map((item) => ({

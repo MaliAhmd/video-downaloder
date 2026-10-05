@@ -10,7 +10,11 @@ export const metadata: Metadata = createMetadata({
 
 export default function DisclaimerPage() {
   return (
-    <InfoPage title="Disclaimer" introduction="Vidspry is an independent media-processing service and is not an official product of any supported third-party platform.">
+    <InfoPage
+      title="Disclaimer"
+      introduction="Vidspry is an independent media-processing service and is not an official product of any supported third-party platform."
+      path="/disclaimer"
+    >
       <section>
         <h2>No Platform Affiliation</h2>
         <p>Vidspry is not affiliated with, sponsored by, owned by, or endorsed by YouTube or Google, Instagram or Meta, Facebook, TikTok or ByteDance, X, or X Corp. Their names and trademarks are used only to identify supported third-party sources.</p>

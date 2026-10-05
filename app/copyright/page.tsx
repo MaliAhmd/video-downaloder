@@ -11,7 +11,11 @@ export const metadata: Metadata = createMetadata({
 
 export default function CopyrightPage() {
   return (
-    <InfoPage title="Copyright / DMCA" introduction="Vidspry is a technical tool and does not grant ownership of, or permission to use, media provided by third-party platforms.">
+    <InfoPage
+      title="Copyright / DMCA"
+      introduction="Vidspry is a technical tool and does not grant ownership of, or permission to use, media provided by third-party platforms."
+      path="/copyright"
+    >
       <section>
         <h2>User Responsibility</h2>
         <p>Only download content you created, content for which you have permission, or content you are otherwise legally authorized to use. You are responsible for understanding the copyright rules and platform terms that apply to your use.</p>

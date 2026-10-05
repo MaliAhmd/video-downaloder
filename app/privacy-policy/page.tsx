@@ -10,7 +10,11 @@ export const metadata: Metadata = createMetadata({
 
 export default function PrivacyPolicyPage() {
   return (
-    <InfoPage title="Privacy Policy" introduction="This policy describes the current Vidspry implementation and the information involved when you use the service.">
+    <InfoPage
+      title="Privacy Policy"
+      introduction="This policy describes the current Vidspry implementation and the information involved when you use the service."
+      path="/privacy-policy"
+    >
       <section>
         <h2>Information You Submit</h2>
         <p>When you generate media options, the URL you enter is sent to the Vidspry server for processing. When you choose a download, the server also receives the selected format and media title. Do not submit private URLs or links you are not authorized to process.</p>

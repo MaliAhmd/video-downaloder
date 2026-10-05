@@ -56,16 +56,23 @@ export async function GET(req: NextRequest) {
   try {
     const url = await normalizeMediaUrl(rawUrl);
 
-    // Run yt-dlp using execFile to avoid shell quoting and escaping issues
-    const { stdout, stderr } = await execFilePromise("yt-dlp", [
+    // Run yt-dlp with extractor arguments to bypass YouTube datacenter bot detection
+    const ytDlpArgs = [
       "--no-update",
+      "--no-warnings",
+      "--no-check-certificates",
+      "--extractor-args",
+      "youtube:player_client=android,web;player_skip=webpage,configs",
       "--dump-json",
       url,
-    ]).catch((error: unknown) => {
+    ];
+
+    const { stdout, stderr } = await execFilePromise("yt-dlp", ytDlpArgs).catch((error: unknown) => {
       const err = error as Error & { code?: string | number };
       if (err.message?.includes("not found") || err.code === 127 || err.code === "ENOENT") {
         throw new Error("yt-dlp not found on server. Please ensure yt-dlp is installed in the server environment.");
       }
+      console.error("yt-dlp execution error:", err.message);
       throw err;
     });
 

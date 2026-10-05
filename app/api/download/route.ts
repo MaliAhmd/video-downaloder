@@ -63,6 +63,9 @@ export async function POST(req: NextRequest) {
       const tempFilePath = path.join(downloadsDir, `${fileId}.mp3`);
       const downloader = spawn("yt-dlp", [
         "--no-update",
+        "--no-warnings",
+        "--no-check-certificates",
+        "--extractor-args", "youtube:player_client=android,web;player_skip=webpage,configs",
         "-x",
         "--audio-format", "mp3",
         "-o", tempFilePath,
@@ -103,6 +106,9 @@ export async function POST(req: NextRequest) {
     const tempFilePath = path.join(downloadsDir, `${fileId}.mp4`);
     const downloader = spawn("yt-dlp", [
       "--no-update",
+      "--no-warnings",
+      "--no-check-certificates",
+      "--extractor-args", "youtube:player_client=android,web;player_skip=webpage,configs",
       "-f", format,
       "--format-sort", "vcodec:h264,res,acodec:m4a",
       "--merge-output-format", "mp4",

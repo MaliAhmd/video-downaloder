@@ -13,6 +13,7 @@ services:
       - NODE_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
+      - NODE_OPTIONS=--max-old-space-size=512
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
       - GOOGLE_SITE_VERIFICATION=${GOOGLE_SITE_VERIFICATION}
     healthcheck:

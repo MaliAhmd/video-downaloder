@@ -12,6 +12,14 @@ export function getCommonYtDlpArgs(url?: string): string[] {
 
   const isYouTube = url ? /youtube\.com|youtu\.be/i.test(url) : false;
 
+  if (isYouTube) {
+    // Enable JavaScript runtimes (quickjs, node) and remote components so yt-dlp can solve YouTube JavaScript challenge scripts
+    args.push(
+      "--js-runtimes", "quickjs,node",
+      "--remote-components", "ejs:github"
+    );
+  }
+
   // Candidate locations for cookies file
   const candidateCookiePaths = [
     process.env.COOKIES_PATH,
@@ -31,7 +39,6 @@ export function getCommonYtDlpArgs(url?: string): string[] {
     if (fs.existsSync(cookiePath)) {
       try {
         // yt-dlp attempts to update session cookies on exit.
-        // If mounted as read-only, it crashes with "OSError: [Errno 30] Read-only file system".
         // Copying to os.tmpdir() guarantees write permissions for the runner.
         const writableCookiePath = path.join(os.tmpdir(), "vidspry-session-cookies.txt");
         fs.copyFileSync(cookiePath, writableCookiePath);

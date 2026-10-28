@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import os from "os";
 
 export function getCommonYtDlpArgs(url?: string): string[] {
   const args = [
@@ -11,38 +12,44 @@ export function getCommonYtDlpArgs(url?: string): string[] {
 
   const isYouTube = url ? /youtube\.com|youtu\.be/i.test(url) : false;
 
-  // For YouTube URLs on VPS / AWS EC2 servers, use the android client.
-  // Standard web requests from datacenter IPs get blocked by YouTube with:
-  // "Sign in to confirm you're not a bot"
-  if (isYouTube) {
-    args.push("--extractor-args", "youtube:player_client=android,web");
-  }
-
-  // Check if a cookies file exists (useful for 100% bypass on any VPS / private posts)
-  const candidateCookiePaths: (string | undefined)[] = [];
-  if (url && /instagram\.com/i.test(url) && process.env.INSTAGRAM_COOKIES_PATH) {
-    candidateCookiePaths.push(process.env.INSTAGRAM_COOKIES_PATH);
-  }
-  if (isYouTube && process.env.YOUTUBE_COOKIES_PATH) {
-    candidateCookiePaths.push(process.env.YOUTUBE_COOKIES_PATH);
-  }
-  candidateCookiePaths.push(
+  // Candidate locations for cookies file
+  const candidateCookiePaths = [
     process.env.COOKIES_PATH,
     process.env.YOUTUBE_COOKIES_PATH,
     process.env.INSTAGRAM_COOKIES_PATH,
+    "/app/cookies/cookies.txt",
+    "/app/cookies/youtube.txt",
     path.join(process.cwd(), "cookies", "cookies.txt"),
     path.join(process.cwd(), "cookies.txt"),
-    "/app/cookies/cookies.txt",
     "/app/cookies.txt",
-    "/tmp/cookies.txt",
-    "/var/www/vidspry/cookies.txt"
-  );
+    path.join(os.tmpdir(), "cookies.txt"),
+    "/var/www/vidspry/cookies.txt",
+  ].filter(Boolean) as string[];
 
-  for (const cookiePath of candidateCookiePaths.filter(Boolean) as string[]) {
+  let activeCookiePath: string | null = null;
+  for (const cookiePath of candidateCookiePaths) {
     if (fs.existsSync(cookiePath)) {
-      args.push("--cookies", cookiePath);
+      try {
+        // yt-dlp attempts to update session cookies on exit.
+        // If mounted as read-only, it crashes with "OSError: [Errno 30] Read-only file system".
+        // Copying to os.tmpdir() guarantees write permissions for the runner.
+        const writableCookiePath = path.join(os.tmpdir(), "vidspry-session-cookies.txt");
+        fs.copyFileSync(cookiePath, writableCookiePath);
+        activeCookiePath = writableCookiePath;
+      } catch {
+        activeCookiePath = cookiePath;
+      }
       break;
     }
+  }
+
+  if (activeCookiePath) {
+    // When authenticated cookies are provided, do not force client overrides,
+    // allowing YouTube to return all standard HD/4K/Audio formats.
+    args.push("--cookies", activeCookiePath);
+  } else if (isYouTube) {
+    // Fallback client argument only when no cookies exist
+    args.push("--extractor-args", "youtube:player_client=android,web");
   }
 
   return args;

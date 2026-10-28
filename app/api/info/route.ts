@@ -184,9 +184,11 @@ export async function GET(req: NextRequest) {
       userFacingError = message;
     } else if (message.includes("Instagram sent an empty media response") || message.includes("login-in") || message.includes("login")) {
       userFacingError = "This Instagram post is private or requires authentication.";
+    } else if (message.includes("Sign in to confirm you’re not a bot") || message.includes("confirm you're not a bot")) {
+      userFacingError = "YouTube bot protection triggered. Please verify cookies on the server.";
     } else if (message.includes("Private video") || message.includes("Sign in if you've been granted access")) {
       userFacingError = "This media is private or requires authentication.";
-    } else if (message.includes("Video unavailable") || message.includes("not available")) {
+    } else if (message.includes("Video unavailable")) {
       userFacingError = "Media is unavailable or has been removed.";
     }
 

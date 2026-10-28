@@ -13,9 +13,9 @@ export function getCommonYtDlpArgs(url?: string): string[] {
   const isYouTube = url ? /youtube\.com|youtu\.be/i.test(url) : false;
 
   if (isYouTube) {
-    // Enable JavaScript runtimes (quickjs, node) and remote components so yt-dlp can solve YouTube JavaScript challenge scripts
+    // Enable Node.js runtime and remote components so yt-dlp can solve YouTube JavaScript challenge scripts
     args.push(
-      "--js-runtimes", "quickjs,node",
+      "--js-runtimes", "node",
       "--remote-components", "ejs:github"
     );
   }

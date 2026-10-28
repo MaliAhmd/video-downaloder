@@ -7,7 +7,7 @@ const deploymentHost =
   process.env.RAILWAY_PUBLIC_DOMAIN;
 
 function getSiteUrl() {
-  if (!deploymentHost) return "https://vidspry.example";
+  if (!deploymentHost) return "https://www.vidspry.site";
 
   const value = deploymentHost.startsWith("http")
     ? deploymentHost
@@ -16,7 +16,7 @@ function getSiteUrl() {
   try {
     return new URL(value).origin;
   } catch {
-    return "https://vidspry.example";
+    return "https://www.vidspry.site";
   }
 }
 

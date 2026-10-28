@@ -11,6 +11,13 @@ export function getCommonYtDlpArgs(url?: string): string[] {
 
   const isYouTube = url ? /youtube\.com|youtu\.be/i.test(url) : false;
 
+  // For YouTube URLs on VPS / AWS EC2 servers, use the android client.
+  // Standard web requests from datacenter IPs get blocked by YouTube with:
+  // "Sign in to confirm you're not a bot"
+  if (isYouTube) {
+    args.push("--extractor-args", "youtube:player_client=android,web");
+  }
+
   // Check if a cookies file exists (useful for 100% bypass on any VPS / private posts)
   const candidateCookiePaths: (string | undefined)[] = [];
   if (url && /instagram\.com/i.test(url) && process.env.INSTAGRAM_COOKIES_PATH) {
@@ -23,7 +30,9 @@ export function getCommonYtDlpArgs(url?: string): string[] {
     process.env.COOKIES_PATH,
     process.env.YOUTUBE_COOKIES_PATH,
     process.env.INSTAGRAM_COOKIES_PATH,
+    path.join(process.cwd(), "cookies", "cookies.txt"),
     path.join(process.cwd(), "cookies.txt"),
+    "/app/cookies/cookies.txt",
     "/app/cookies.txt",
     "/tmp/cookies.txt",
     "/var/www/vidspry/cookies.txt"

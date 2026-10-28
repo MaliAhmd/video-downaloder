@@ -8,6 +8,9 @@ export const metadata: Metadata = createMetadata({
   path: "/privacy-policy",
 });
 
+
+
+
 export default function PrivacyPolicyPage() {
   return (
     <InfoPage

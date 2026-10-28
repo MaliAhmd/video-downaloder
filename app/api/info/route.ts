@@ -58,9 +58,9 @@ export async function GET(req: NextRequest) {
   try {
     const url = await normalizeMediaUrl(rawUrl);
 
-    // Run yt-dlp with extractor arguments to bypass YouTube datacenter bot detection
+    // Run yt-dlp with extractor arguments tailored to the platform
     const ytDlpArgs = [
-      ...getCommonYtDlpArgs(),
+      ...getCommonYtDlpArgs(url),
       "--dump-json",
       url,
     ];
@@ -178,8 +178,20 @@ export async function GET(req: NextRequest) {
   } catch (error: unknown) {
     console.error("Error fetching video info:", error);
     const message = getErrorMessage(error);
+    let userFacingError = "Invalid URL or unsupported platform";
+
+    if (message.includes("yt-dlp not found")) {
+      userFacingError = message;
+    } else if (message.includes("Instagram sent an empty media response") || message.includes("login-in") || message.includes("login")) {
+      userFacingError = "This Instagram post is private or requires authentication.";
+    } else if (message.includes("Private video") || message.includes("Sign in if you've been granted access")) {
+      userFacingError = "This media is private or requires authentication.";
+    } else if (message.includes("Video unavailable") || message.includes("not available")) {
+      userFacingError = "Media is unavailable or has been removed.";
+    }
+
     return NextResponse.json(
-      { error: message.includes("yt-dlp not found") ? message : "Invalid URL or unsupported platform" },
+      { error: userFacingError },
       { status: 500 }
     );
   }

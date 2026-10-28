@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
         const { execFile } = await import("child_process");
         const { promisify } = await import("util");
         const execFilePromise = promisify(execFile);
-        const { stdout } = await execFilePromise("yt-dlp", [...getCommonYtDlpArgs(), "--dump-json", normalizedUrl]);
+        const { stdout } = await execFilePromise("yt-dlp", [...getCommonYtDlpArgs(normalizedUrl), "--dump-json", normalizedUrl]);
         const info = JSON.parse(stdout);
         imageUrl = info.thumbnails?.[info.thumbnails.length - 1]?.url || info.thumbnail;
       }
@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
     if (isAudioOnly) {
       const tempFilePath = path.join(downloadsDir, `${fileId}.mp3`);
       const downloader = spawn("yt-dlp", [
-        ...getCommonYtDlpArgs(),
+        ...getCommonYtDlpArgs(normalizedUrl),
         "-x",
         "--audio-format", "mp3",
         "-o", tempFilePath,
@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
     // Handle Video Downloads
     const tempFilePath = path.join(downloadsDir, `${fileId}.mp4`);
     const downloader = spawn("yt-dlp", [
-      ...getCommonYtDlpArgs(),
+      ...getCommonYtDlpArgs(normalizedUrl),
       "-f", format,
       "--format-sort", "vcodec:h264,res,acodec:m4a",
       "--merge-output-format", "mp4",

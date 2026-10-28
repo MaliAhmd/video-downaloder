@@ -46,7 +46,7 @@ export function Downloader({ ariaLabel = "Media downloader" }: DownloaderProps) 
   };
 
   return (
-    <section aria-label={ariaLabel} className="pb-10">
+    <section aria-label={ariaLabel} className="border-b border-[#2A2E3A] pb-14">
       <UrlInput onFetch={handleFetch} isLoading={loading} />
 
       {error && (

@@ -4,8 +4,8 @@ import { PlatformIcon } from "./PlatformIcon";
 
 export function SupportedPlatforms() {
   return (
-    <section id="platforms" className="mx-auto w-full max-w-5xl scroll-mt-20 px-6 py-14">
-      <div className="border-t border-[#2A2E3A] pt-12">
+    <section id="platforms" className="border-b border-[#2A2E3A]">
+      <div className="mx-auto w-full max-w-5xl scroll-mt-20 px-6 py-14">
         <h2 className="text-xl font-semibold tracking-tight text-[#F2F0EA] mb-6">
           Supported platforms
         </h2>

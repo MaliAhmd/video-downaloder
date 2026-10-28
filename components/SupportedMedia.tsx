@@ -26,8 +26,8 @@ const items = [
 
 export function SupportedMedia() {
   return (
-    <section className="border-y border-[#2A2E3A] bg-[#161821]">
-      <div className="mx-auto w-full max-w-5xl px-6 py-14">
+    <section className="border-b border-[#2A2E3A]">
+      <div className="mx-auto w-full max-w-5xl px-6 py-14" aria-labelledby="supported-media-heading">
         <SectionHeading
           title="Supported Media and Formats"
           description="Vidspry shows only the options it can detect for the submitted URL; not every source offers every format or quality."

@@ -74,33 +74,35 @@ export function PlatformLandingPage({ platform }: PlatformLandingPageProps) {
 
       <Downloader ariaLabel={`${platform.name} downloader`} />
 
-      <section className="mx-auto grid w-full max-w-5xl gap-10 px-6 py-14 lg:grid-cols-2">
-        <div>
-          <SectionHeading title={`How to Download from ${platform.name}`} />
-          <ol className="space-y-3">
-            {platform.instructions.map((instruction, index) => (
-              <li key={instruction} className="flex gap-3 rounded-md border border-[#2A2E3A] bg-[#1B1E27] p-4 text-sm leading-6 text-[#8B90A0]">
-                <span className="font-mono text-xs text-[#C99A3D]">0{index + 1}</span>
-                {instruction}
-              </li>
-            ))}
-          </ol>
-        </div>
-        <div>
-          <SectionHeading title="Supported Content" />
-          <ul className="space-y-3 rounded-md border border-[#2A2E3A] bg-[#1B1E27] p-5">
-            {platform.supportedContent.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm leading-6 text-[#8B90A0]">
-                <Check size={15} className="mt-1 shrink-0 text-[#C99A3D]" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
+      <section className="border-b border-[#2A2E3A]">
+        <div className="mx-auto grid w-full max-w-5xl gap-10 px-6 py-14 lg:grid-cols-2">
+          <div>
+            <SectionHeading title={`How to Download from ${platform.name}`} />
+            <ol className="space-y-3">
+              {platform.instructions.map((instruction, index) => (
+                <li key={instruction} className="flex gap-3 rounded-md border border-[#2A2E3A] bg-[#1B1E27] p-4 text-sm leading-6 text-[#8B90A0]">
+                  <span className="font-mono text-xs text-[#C99A3D]">0{index + 1}</span>
+                  {instruction}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <SectionHeading title="Supported Content" />
+            <ul className="space-y-3 rounded-md border border-[#2A2E3A] bg-[#1B1E27] p-5">
+              {platform.supportedContent.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-[#8B90A0]">
+                  <Check size={15} className="mt-1 shrink-0 text-[#C99A3D]" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="border-y border-[#2A2E3A] bg-[#161821]">
-        <div className="mx-auto w-full max-w-5xl px-6 py-14">
+      <section className="border-b border-[#2A2E3A]">
+        <div className="mx-auto w-full max-w-5xl px-6 py-14" aria-labelledby="troubleshooting-heading">
           <SectionHeading title={`${platform.name} Troubleshooting`} description="If a link does not generate options, these checks resolve the most common source-specific issues." />
           <div className="grid gap-4 md:grid-cols-2">
             {platform.troubleshooting.map((item) => (
@@ -114,21 +116,25 @@ export function PlatformLandingPage({ platform }: PlatformLandingPageProps) {
         </div>
       </section>
 
-      <div className="mx-auto w-full max-w-3xl px-6 py-14">
-        <FAQ items={platform.faqs} title={`${platform.name} Downloader FAQ`} compact />
-      </div>
-
-      <section className="mx-auto w-full max-w-5xl px-6 py-14" aria-labelledby="other-platforms">
-        <div className="mb-6 flex items-center gap-2">
-          <CircleHelp size={18} className="text-[#C99A3D]" aria-hidden="true" />
-          <h2 id="other-platforms" className="text-xl font-semibold text-[#F2F0EA]">Other Supported Platforms</h2>
+      <section className="border-b border-[#2A2E3A]">
+        <div className="mx-auto w-full max-w-3xl px-6 py-14">
+          <FAQ items={platform.faqs} title={`${platform.name} Downloader FAQ`} compact />
         </div>
-        <div className="grid gap-3 sm:grid-cols-3">
-          {platforms.filter((item) => item.key !== platform.key).map((item) => (
-            <Link key={item.key} href={`/${item.slug}`} className="rounded-md border border-[#2A2E3A] bg-[#1B1E27] p-4 text-sm font-medium text-[#F2F0EA] transition-colors hover:border-[#C99A3D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C99A3D]">
-              {item.name} Downloader
-            </Link>
-          ))}
+      </section>
+
+      <section className="border-b border-[#2A2E3A]">
+        <div className="mx-auto w-full max-w-5xl px-6 py-14" aria-labelledby="other-platforms">
+          <div className="mb-6 flex items-center gap-2">
+            <CircleHelp size={18} className="text-[#C99A3D]" aria-hidden="true" />
+            <h2 id="other-platforms" className="text-xl font-semibold text-[#F2F0EA]">Other Supported Platforms</h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {platforms.filter((item) => item.key !== platform.key).map((item) => (
+              <Link key={item.key} href={`/${item.slug}`} className="rounded-md border border-[#2A2E3A] bg-[#1B1E27] p-4 text-sm font-medium text-[#F2F0EA] transition-colors hover:border-[#C99A3D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C99A3D]">
+                {item.name} Downloader
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
       <ResponsibleUse />

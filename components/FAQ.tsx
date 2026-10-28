@@ -42,5 +42,11 @@ export function FAQ({
 
   if (compact) return <section>{content}</section>;
 
-  return <section className="mx-auto w-full max-w-3xl px-6 py-14">{content}</section>;
+  return (
+    <section className="border-b border-[#2A2E3A]">
+      <div className="mx-auto w-full max-w-3xl px-6 py-14">
+        {content}
+      </div>
+    </section>
+  );
 }

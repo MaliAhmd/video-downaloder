@@ -68,7 +68,11 @@ export async function GET(req: NextRequest) {
     const { stdout, stderr } = await execFilePromise("yt-dlp", ytDlpArgs, {
       maxBuffer: 50 * 1024 * 1024,
     }).catch((error: unknown) => {
-      const err = error as Error & { code?: string | number };
+      const err = error as Error & { code?: string | number; stdout?: string; stderr?: string };
+      // If yt-dlp succeeded in emitting JSON to stdout despite a non-zero exit code (e.g. cookie update warning or permission notice), use it
+      if (err.stdout && err.stdout.trim().startsWith("{")) {
+        return { stdout: err.stdout, stderr: err.stderr || "" };
+      }
       if (err.message?.includes("not found") || err.code === 127 || err.code === "ENOENT") {
         throw new Error("yt-dlp not found on server. Please ensure yt-dlp is installed in the server environment.");
       }

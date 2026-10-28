@@ -12,12 +12,12 @@ const features = [
 
 export function Features() {
   return (
-    <section className="border-y border-[#2A2E3A] bg-[#161821]">
+    <section className="border-b border-[#2A2E3A]">
       <div className="mx-auto w-full max-w-5xl px-6 py-14" aria-labelledby="features-heading">
         <SectionHeading title="Why Use Vidspry?" description="A focused downloader built around a straightforward browser workflow." />
-        <div className="grid gap-px overflow-hidden rounded-md border border-[#2A2E3A] bg-[#2A2E3A] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
-            <article key={feature.title} className="bg-[#1B1E27] p-5">
+            <article key={feature.title} className="rounded-md border border-[#2A2E3A] bg-[#1B1E27] p-5">
               <feature.icon size={18} className="mb-3 text-[#C99A3D]" aria-hidden="true" />
               <h3 className="text-sm font-semibold text-[#F2F0EA]">{feature.title}</h3>
               <p className="mt-1.5 text-xs leading-5 text-[#8B90A0]">{feature.text}</p>

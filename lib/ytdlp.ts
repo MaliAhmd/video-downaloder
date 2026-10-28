@@ -8,9 +8,8 @@ export function getCommonYtDlpArgs(url?: string): string[] {
     "--no-warnings",
     "--no-check-certificates",
     "--force-ipv4",
+    "--no-playlist",
   ];
-
-  
 
   const isYouTube = url ? /youtube\.com|youtu\.be/i.test(url) : false;
 
@@ -44,6 +43,11 @@ export function getCommonYtDlpArgs(url?: string): string[] {
         // Copying to os.tmpdir() guarantees write permissions for the runner.
         const writableCookiePath = path.join(os.tmpdir(), "vidspry-session-cookies.txt");
         fs.copyFileSync(cookiePath, writableCookiePath);
+        try {
+          fs.chmodSync(writableCookiePath, 0o666);
+        } catch {
+          // Ignore chmod failures on systems that do not support it
+        }
         activeCookiePath = writableCookiePath;
       } catch {
         activeCookiePath = cookiePath;

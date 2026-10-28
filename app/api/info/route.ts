@@ -65,7 +65,9 @@ export async function GET(req: NextRequest) {
       url,
     ];
 
-    const { stdout, stderr } = await execFilePromise("yt-dlp", ytDlpArgs).catch((error: unknown) => {
+    const { stdout, stderr } = await execFilePromise("yt-dlp", ytDlpArgs, {
+      maxBuffer: 50 * 1024 * 1024,
+    }).catch((error: unknown) => {
       const err = error as Error & { code?: string | number };
       if (err.message?.includes("not found") || err.code === 127 || err.code === "ENOENT") {
         throw new Error("yt-dlp not found on server. Please ensure yt-dlp is installed in the server environment.");

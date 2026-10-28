@@ -33,7 +33,9 @@ export async function POST(req: NextRequest) {
         const { execFile } = await import("child_process");
         const { promisify } = await import("util");
         const execFilePromise = promisify(execFile);
-        const { stdout } = await execFilePromise("yt-dlp", [...getCommonYtDlpArgs(normalizedUrl), "--dump-json", normalizedUrl]);
+        const { stdout } = await execFilePromise("yt-dlp", [...getCommonYtDlpArgs(normalizedUrl), "--dump-json", normalizedUrl], {
+          maxBuffer: 50 * 1024 * 1024,
+        });
         const info = JSON.parse(stdout);
         imageUrl = info.thumbnails?.[info.thumbnails.length - 1]?.url || info.thumbnail;
       }

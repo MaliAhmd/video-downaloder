@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
         downloader.on("close", (code) => {
           if (code !== 0 || errorOccurred) {
             console.error(`yt-dlp audio extraction failed (code ${code}):`, stderrOutput);
-            resolve(NextResponse.json({ error: "Preparation failed", details: stderrOutput }, { status: 500 }));
+            resolve(NextResponse.json({ error: "Failed to prepare media file. Please try another format or link." }, { status: 500 }));
             return;
           }
 
@@ -109,8 +109,7 @@ export async function POST(req: NextRequest) {
       "-f", format,
       "--format-sort", "vcodec:h264,res,acodec:m4a",
       "--merge-output-format", "mp4",
-      "--recode-video", "mp4",
-      "--postprocessor-args", "VideoConvertor:-vcodec libx264 -acodec aac",
+      "--remux-video", "mp4",
       "-o", tempFilePath,
       normalizedUrl,
     ]);
@@ -126,7 +125,7 @@ export async function POST(req: NextRequest) {
       downloader.on("close", (code) => {
         if (code !== 0 || errorOccurred) {
           console.error(`yt-dlp video failed (code ${code}):`, stderrOutput);
-          resolve(NextResponse.json({ error: "Preparation failed", details: stderrOutput }, { status: 500 }));
+          resolve(NextResponse.json({ error: "Failed to prepare media file. Please try another format or link." }, { status: 500 }));
           return;
         }
 

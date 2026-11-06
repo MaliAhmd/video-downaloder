@@ -9,6 +9,10 @@ export function getCommonYtDlpArgs(url?: string): string[] {
     "--no-check-certificates",
     "--force-ipv4",
     "--no-playlist",
+    "--socket-timeout", "15",
+    "-N", "6",
+    "--buffer-size", "64K",
+    "--http-chunk-size", "10M",
   ];
 
   const isYouTube = url ? /youtube\.com|youtu\.be/i.test(url) : false;

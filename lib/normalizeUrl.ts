@@ -39,6 +39,8 @@ export async function normalizeMediaUrl(rawUrl: string): Promise<string> {
     url = url.replace(/\/photo\//i, "/video/");
   }
 
+  
+
   // Normalize Instagram URLs and strip tracking parameters (e.g., utm_source, igsh, exln)
   const igMatch = url.match(/(?:https?:\/\/)?(?:www\.)?instagram\.com\/(reel|reels|p|tv)\/([A-Za-z0-9_-]+)/i);
   if (igMatch && igMatch[1] && igMatch[2]) {

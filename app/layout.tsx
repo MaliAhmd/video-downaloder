@@ -29,7 +29,6 @@ export const metadata: Metadata = {
   creator: "Muhammad Ali Ahmad",
   publisher: siteConfig.name,
   category: "technology",
-  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,

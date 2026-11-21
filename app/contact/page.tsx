@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { Copyright, ExternalLink, Github, MessageSquare } from "lucide-react";
+import { Copyright, ExternalLink, Github, Mail, MessageSquare } from "lucide-react";
 import { InfoPage } from "@/components/InfoPage";
 import { createMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
-  title: "Contact Vidspry",
-  description: "Contact information and project links for Vidspry.",
+  title: "Contact Vidspry Support & Inquiries",
+  description: "Get in touch with the Vidspry team for technical support, feedback, DMCA inquiries, or business questions.",
   path: "/contact",
 });
 
@@ -15,38 +15,56 @@ export default function ContactPage() {
   return (
     <InfoPage
       title="Contact Vidspry"
-      introduction="Questions, feedback, or a problem with a supported link? Choose the contact route that best matches what you need."
+      introduction="Have a question, feedback, or need help with a supported link? Reach out to us through our direct contact channels."
       path="/contact"
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <ContactCard
+          icon={<Mail size={20} aria-hidden="true" />}
+          title="Direct Email Support"
+          description="Send an email to our support team for general inquiries, bug reports, and assistance."
+          href="mailto:support@vidspry.site"
+          label="support@vidspry.site"
+          external
+        />
+        <ContactCard
           icon={<Github size={20} aria-hidden="true" />}
-          title="Project support"
-          description="Report a technical problem, request a feature, or review the public project activity on GitHub."
+          title="Project & Developer Support"
+          description="Report technical issues, track fixes, or inspect public repository updates on GitHub."
           href={siteConfig.githubUrl}
-          label="Open GitHub"
+          label="Open GitHub Repository"
           external
         />
         <ContactCard
           icon={<MessageSquare size={20} aria-hidden="true" />}
-          title="General inquiries"
-          description="Use the developer website for available professional and general contact options."
+          title="Developer Portfolio"
+          description="Visit the creator's portfolio website for direct networking and developer info."
           href={siteConfig.authorUrl}
-          label="Visit developer website"
+          label="Visit devaalley.me"
           external
         />
         <ContactCard
           icon={<Copyright size={20} aria-hidden="true" />}
-          title="Copyright questions"
-          description="Review the copyright guidance and the information required for a rights-related request."
+          title="DMCA & Copyright"
+          description="Review our DMCA policy or email our copyright compliance agent directly at dmca@vidspry.site."
           href="/copyright"
-          label="Read copyright guidance"
+          label="View DMCA Policy"
         />
       </div>
 
       <section>
-        <h2>Before You Contact Us</h2>
-        <p>For faster help, include the source platform, the type of URL you used, the error message you saw, and your browser or device. Do not send passwords, login cookies, private media links, payment information, or other sensitive data.</p>
+        <h2>Technical Support Guidelines</h2>
+        <p>
+          To help us resolve link processing issues quickly, please include:
+        </p>
+        <ul className="list-disc space-y-1.5 pl-5 text-sm text-[#8B90A0]">
+          <li>The platform (YouTube, Instagram, TikTok, Facebook, or X) and the exact public URL you attempted to download.</li>
+          <li>The error message or symptom displayed (e.g., &quot;Stream extraction failed&quot; or timeout).</li>
+          <li>Your operating system (Android, iOS, Windows, macOS) and browser name (Chrome, Safari, Firefox).</li>
+        </ul>
+        <p className="mt-3 text-xs text-[#8B90A0]">
+          <em>Note: Never send passwords, private account credentials, payment information, or confidential media.</em>
+        </p>
       </section>
     </InfoPage>
   );
